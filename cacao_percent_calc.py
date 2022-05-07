@@ -3,7 +3,23 @@ import json
 
 def handler(event, context):
     b = json.loads(event['body'])
-    print(b)
+    if not validate_body(b):
+        return {
+            'statusCode': 400,
+            'body': json.dumps({
+                'message': {
+                    'mandatory_keys': [
+                        'cacao_butter',
+                        'cacao'
+                    ],
+                    'optional_keys': [
+                        'sugar',
+                        'milk_powder',
+                        'other'
+                    ]
+                }
+            })
+        }
     ingredient_list = [b['cacao_butter'],
                        b['cacao'],
                        b['sugar'],
@@ -14,6 +30,12 @@ def handler(event, context):
         'statusCode': 200,
         'body': json.dumps(calculate_percentage(ingredient_list))
     }
+
+
+def validate_body(bdy: dict):
+    if "cacao_butter" in bdy and "cacao" in bdy:
+        return True
+    return False
 
 
 def calculate_percentage(i: list):
