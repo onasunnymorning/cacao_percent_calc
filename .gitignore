@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Serverless stuff
+.serverless
+
 # C extensions
 *.so
 

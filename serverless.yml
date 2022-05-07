@@ -1,0 +1,21 @@
+org: gprins
+app: cacao-percent-calc
+service: cacao-percent-calc
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+  profile: ${opt:profile, "geoff"}
+  region: ${opt:region, "us-west-2"}
+  stage: ${opt:stage, "dev"}
+
+functions:
+  pcalc:
+    handler: cacao_percent_calc.handler
+    events:
+      - httpApi:
+          path: /
+          method: post
+    environment:
+      STAGE: ${self:provider.stage}
