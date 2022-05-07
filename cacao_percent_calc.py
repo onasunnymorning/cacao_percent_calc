@@ -10,9 +10,7 @@ def handler(event, context):
                 'message': {
                     'mandatory_keys': [
                         'cacao_butter',
-                        'cacao'
-                    ],
-                    'optional_keys': [
+                        'cacao',
                         'sugar',
                         'milk_powder',
                         'other'
@@ -33,7 +31,8 @@ def handler(event, context):
 
 
 def validate_body(bdy: dict):
-    if "cacao_butter" in bdy and "cacao" in bdy:
+    keys = ["cacao_butter", "cacao", "sugar", "milk_powder", "other"]
+    if all(k in bdy for k in keys):
         return True
     return False
 

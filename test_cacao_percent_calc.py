@@ -52,9 +52,7 @@ def test_80_fail(event_fix_invalid, context_fix):
                 'message': {
                     'mandatory_keys': [
                         'cacao_butter',
-                        'cacao'
-                    ],
-                    'optional_keys': [
+                        'cacao',
                         'sugar',
                         'milk_powder',
                         'other'
