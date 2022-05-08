@@ -32,6 +32,7 @@ def context_fix():
     return {}
 
 
+
 @pytest.fixture
 def list_fix():
     return [100, 3900, 1000, 0, 0]
