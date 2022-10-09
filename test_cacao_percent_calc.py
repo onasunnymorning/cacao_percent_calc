@@ -64,6 +64,7 @@ def test_80_fail(event_fix_invalid, context_fix):
 def test_calculate_percentage(list_fix):
     result = calculate_percentage(list_fix)
     assert result['total'] == 5000
-    assert result['percentage'] == 0.8
+    assert result['cacao_percent'] == 0.8
+    assert result['cacao_butter_percent'] == 0.02
 
 
