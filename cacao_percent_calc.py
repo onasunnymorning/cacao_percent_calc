@@ -40,8 +40,11 @@ def validate_body(bdy: dict):
 def calculate_percentage(i: list):
     total = sum(i)
     cacao = sum(i[0:2])
-    p = cacao / total
+    cacao_butter = i[0]
+    cp = cacao / total
+    cbp = cacao_butter / total
     return {
         'total': total,
-        'percentage': p
+        'cacao_percent': cp,
+        'cacao_butter_percent': cbp
     }
